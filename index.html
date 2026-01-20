@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Switching Visual</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Tela de Instruções 1 -->
+      <div id="instructions-1" class="screen-container">
+        <h1 class="title">Etapa 1: Temperatura</h1>
+        <div class="instructions-content">
+          <p>Você verá uma série de palavras, uma de cada vez. Acima de cada palavra, um <span class="highlight-cyan">símbolo</span> aparecerá.</p>
+          <p>Sua tarefa é decidir o mais rápido possível se a palavra representa uma comida <span class="highlight-cyan">FRIA</span> ou <span class="highlight-amber">QUENTE</span>.</p>
+          <div class="keys-info">
+            <div>
+              <p>Pressione a tecla</p>
+              <kbd>A</kbd>
+              <p>para <span class="highlight-cyan">FRIA</span></p>
+            </div>
+            <div>
+              <p>Pressione a tecla</p>
+              <kbd>L</kbd>
+              <p>para <span class="highlight-amber">QUENTE</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="start-prompt">
+          <p>Pressione <kbd>ESPAÇO</kbd> para iniciar.</p>
+          <p class="subtitle">Posicione seu indicador esquerdo sobre a tecla A e o direito sobre a tecla L.</p>
+        </div>
+      </div>
+
+      <!-- Tela de Instruções 2 -->
+      <div id="instructions-2" class="screen-container hidden">
+        <h1 class="title">Etapa 2: Sabor</h1>
+        <div class="instructions-content">
+          <p>Agora, a regra mudou. Acima de cada palavra, um <span class="highlight-cyan">símbolo</span> aparecerá.</p>
+          <p>Sua tarefa é decidir o mais rápido possível se a palavra representa uma comida <span class="highlight-cyan">DOCE</span> ou <span class="highlight-amber">SALGADA</span>.</p>
+          <div class="keys-info">
+            <div>
+              <p>Pressione a tecla</p>
+              <kbd>A</kbd>
+              <p>para <span class="highlight-cyan">DOCE</span></p>
+            </div>
+            <div>
+              <p>Pressione a tecla</p>
+              <kbd>L</kbd>
+              <p>para <span class="highlight-amber">SALGADA</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="start-prompt">
+          <p>Pressione <kbd>ESPAÇO</kbd> para iniciar.</p>
+          <p class="subtitle">Posicione seu indicador esquerdo sobre a tecla A e o direito sobre a tecla L.</p>
+        </div>
+      </div>
+
+      <!-- Tela de Instruções 3 -->
+      <div id="instructions-3" class="screen-container hidden">
+        <h1 class="title">Etapa 3: Alternando Tarefas</h1>
+        <div class="instructions-content">
+          <p>Agora, vamos combinar as duas tarefas. Preste atenção ao símbolo acima da palavra a cada rodada!</p>
+          <div class="task-rules">
+            <p>Se o símbolo for 🌡️: Classifique pela <span>TEMPERATURA</span>.</p>
+            <p>Se o símbolo for 👄: Classifique pelo <span>SABOR</span>.</p>
+          </div>
+          <div class="keys-info">
+            <div>
+              <p>Pressione</p>
+              <kbd>A</kbd>
+              <p>para <span class="highlight-cyan">FRIA</span> ou <span class="highlight-cyan">DOCE</span></p>
+            </div>
+            <div>
+              <p>Pressione</p>
+              <kbd>L</kbd>
+              <p>para <span class="highlight-amber">QUENTE</span> ou <span class="highlight-amber">SALGADA</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="start-prompt">
+          <p>Pressione <kbd>ESPAÇO</kbd> para iniciar.</p>
+          <p class="subtitle">Posicione seu indicador esquerdo sobre a tecla A e o direito sobre a tecla L.</p>
+        </div>
+      </div>
+
+      <!-- Tela do Teste -->
+      <div id="test-screen" class="hidden">
+        <div class="test-container">
+          <div id="test-cue" class="test-cue"></div>
+          <h2 id="test-word" class="test-word"></h2>
+          <div id="test-feedback" class="test-feedback hidden">
+            <span>X</span>
+            <p>Tente novamente</p>
+          </div>
+        </div>
+        <div id="test-progress" class="test-progress"></div>
+      </div>
+
+      <!-- Tela de Resultados -->
+      <div id="results-screen" class="screen-container hidden">
+        <h1 class="title-light">Resultados do Teste</h1>
+        <p class="subtitle-light">Análise da sua performance de flexibilidade cognitiva.</p>
+        <div class="results-grid">
+          <div class="result-section">
+            <h2 class="section-title">Performance Geral</h2>
+            <div class="card-group-4">
+              <div class="metric-card"><h3>RT Médio (Direto)</h3><p id="rt-d">0 ms</p><small>Tempo de reação nas etapas 1 e 2</small></div>
+              <div class="metric-card"><h3>Total Erros (Direto)</h3><p id="e-d">0</p><small>Erros totais nas etapas 1 e 2</small></div>
+              <div class="metric-card"><h3>RT Médio (Alternado)</h3><p id="rt-a">0 ms</p><small>Tempo de reação na etapa 3</small></div>
+              <div class="metric-card"><h3>Total Erros (Alternado)</h3><p id="e-a">0</p><small>Erros totais na etapa 3</small></div>
+            </div>
+          </div>
+          <div class="result-section">
+            <h2 class="section-title">Análise de Troca de Tarefa (Custo de Troca)</h2>
+            <div class="card-group-2">
+              <div class="sub-group">
+                <h3>Custo de Troca (Tempo)</h3>
+                <div class="card-group-3">
+                  <div class="metric-card small"><h4>RT Troca (TR)</h4><p id="tr">0 ms</p><small>RT após troca</small></div>
+                  <div class="metric-card small"><h4>RT Não-Troca (TnR)</h4><p id="tnr">0 ms</p><small>RT sem troca</small></div>
+                  <div class="metric-card small"><h4>CTT (TR-TnR)</h4><p id="ctt">0 ms</p><small>Diferença de RT</small></div>
+                </div>
+              </div>
+              <div class="sub-group">
+                <h3>Custo de Troca (Erros)</h3>
+                <div class="card-group-3">
+                  <div class="metric-card small"><h4>Erros Troca (ER)</h4><p id="er">0</p><small>Erros após troca</small></div>
+                  <div class="metric-card small"><h4>Erros Não-Troca (EnR)</h4><p id="enr">0</p><small>Erros sem troca</small></div>
+                  <div class="metric-card small"><h4>CTE (ER-EnR)</h4><p id="cte">0</p><small>Diferença de Erros</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="restart-button">Reiniciar Teste</button>
+      </div>
+    </main>
+
+    <script src="src/js/script.js"></script>
+  </body>
+</html>
