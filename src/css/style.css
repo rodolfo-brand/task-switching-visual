@@ -64,7 +64,7 @@ main {
 
 .subtitle {
   margin-top: 1rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
@@ -83,6 +83,11 @@ main {
     margin-bottom: 1rem;
 }
 
+.highlight-red {
+  color: var(--red);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
 .highlight-cyan {
   color: var(--cyan);
   font-weight: 600;
